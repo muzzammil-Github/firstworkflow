@@ -7,4 +7,7 @@ jobs:
     - name: Run a one-line script
       run: echo "Hello, world!"
     - name: Run a multi-line script
-      run: echo "done, goodbye!"
+      run: |
+        echo "First Output"
+        echo "Second Output"
+        echo "Third Output"
