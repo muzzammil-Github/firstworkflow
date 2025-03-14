@@ -10,4 +10,5 @@ jobs:
       run: |
         echo "First Output"
         echo "Second Output"
-        echo "Third Output""
+        echo "Third Output"
+        echo "Fourth Output"
