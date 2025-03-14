@@ -1,14 +1,12 @@
-name: firstjobn
+name: firstworkflow
 on: workflow_dispatch
 jobs:
-  first-job:
+  first-jon:
     runs-on: ubuntu-latest
     steps:
     - name: Run a one-line script
-      run: echo "Hello, world!"
+      run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        echo "First Output"
-        echo "Second Output"
-        echo "Third Output"
-        echo "Fourth Output"
+        echo This is a multi-line script
+        echo It is a very simple script
