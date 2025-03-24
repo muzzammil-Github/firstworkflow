@@ -1,14 +1,22 @@
 name: firstworkflow
-on: workflow_dispatch
+
+on: 
+  push:
+    branches:
+      - main
+
+env:
+  MY_NAME: "Syed_Muzzammil"
+
 jobs:
-  build:
+  demo:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: echo
+      run: echo "Hello ${{ env.MY_NAME }}"
+    
+    - name: get comments 
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        echo "Awesome"
+        echo "my name is ${{ env.MY_NAME }}"
+        echo "Nice"
