@@ -15,7 +15,7 @@ jobs:
     - name: echo
       run: echo "Hello ${{ env.MY_NAME }}"
     
-    - name: get comments 
+    - name: get comments from env ${{ env.MY_NAME }}
       run: |
         echo "Awesome"
         echo "my name is ${{ env.MY_NAME }}"
