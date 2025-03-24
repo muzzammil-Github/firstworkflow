@@ -14,6 +14,10 @@ jobs:
     steps:
     - name: echo
       run: echo "Hello ${{ env.MY_NAME }}"
+      env:
+        MY_AGE: "32"
+    - name: echo age
+      run: echo "My age is ${{ env.MY_AGE }}"
     
     - name: get comments from env ${{ env.MY_NAME }}
       run: |
