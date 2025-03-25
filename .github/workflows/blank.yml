@@ -1,26 +1,22 @@
-name: firstworkflow
-
-on: 
+name: matrix_example
+on:
   push:
-    branches:
-      - main
-
-env:
-  MY_NAME: "Syed_Muzzammil"
-
-jobs:
-  demo:
-    runs-on: ubuntu-latest
-    steps:
-    - name: echo
-      run: echo "Hello ${{ env.MY_NAME }}"
-      env:
-        MY_AGE: "32"
-    - name: echo age
-      run: echo "My age is ${{ env.MY_AGE }}"
     
-    - name: get comments from env ${{ env.MY_NAME }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
       run: |
-        echo "Awesome"
-        echo "my name is ${{ env.MY_NAME }}"
-        echo "Nice"
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run tests
+      run: echo "Running tests for Python ${{ matrix.python-version }}"
